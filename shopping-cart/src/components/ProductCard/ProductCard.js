@@ -19,50 +19,53 @@ const ProductCard = ({ product, updateCart, cartItem, addToCart }) => {
             {product.subtitle}
           </Card.Subtitle>
           <Card.Text className="text">{product.description}</Card.Text>
+          <Card.Title tag="h1" className="mb-3 text-warning">
+            ${product.price}
+          </Card.Title>
           <Row>
             {(cartItem ? (
-                <>
-                  <Col>
-                    <Button
-                      variant="danger"
-                      size="lg"
-                      onClick={() => updateCart(cartItem , cartItem.quantity - 1)}
-                      style={{ "margin-top": "auto" }}
-                    >
-                      <MinusCircleIcon />
-                    </Button>
-                  </Col>
-                  <Col>
-                    <Badge
-                      variant="secondary"
-                      style={{ fontSize: 30, width: "100%" }}
-                    >
-                      {cartItem.quantity}
-                    </Badge>
-                  </Col>
-                  <Col>
-                    <Button
-                      variant="primary"
-                      size="lg"
-                      onClick={() => updateCart(cartItem , cartItem.quantity + 1)}
-                      style={{ "margin-top": "auto" }}
-                    >
-                      <PlusCircleIcon />
-                    </Button>
-                  </Col>
-                </>
-              ) : (
+              <>
+                <Col>
+                  <Button
+                    variant="danger"
+                    size="lg"
+                    onClick={() => updateCart(cartItem, cartItem.quantity - 1)}
+                    style={{ "margin-top": "auto" }}
+                  >
+                    <MinusCircleIcon />
+                  </Button>
+                </Col>
+                <Col>
+                  <Badge
+                    variant="secondary"
+                    style={{ fontSize: 30, width: "100%" }}
+                  >
+                    {cartItem.quantity}
+                  </Badge>
+                </Col>
                 <Col>
                   <Button
                     variant="primary"
-                    onClick={() => addToCart(product)}
+                    size="lg"
+                    onClick={() => updateCart(cartItem, cartItem.quantity + 1)}
                     style={{ "margin-top": "auto" }}
                   >
-                    Add to Cart
-                  <CartIcon />
+                    <PlusCircleIcon />
                   </Button>
                 </Col>
-              ))}
+              </>
+            ) : (
+              <Col>
+                <Button
+                  variant="primary"
+                  onClick={() => addToCart(product)}
+                  style={{ "margin-top": "auto" }}
+                >
+                  Add to Cart
+                  <CartIcon />
+                </Button>
+              </Col>
+            ))}
           </Row>
         </Card.Body>
       </Card>
