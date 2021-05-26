@@ -26,7 +26,7 @@ const Cart = ({ cart }) => {
                             <div className="item-body">
                                 <div className="title">{c.product.title.substring(0, 20)}...</div>
                                 <div className="quantity"> Quantity : {c.quantity}</div>
-                                <div className="price">{financial(c.product.price * c.quantity)} $ </div>
+                                <div className="price">${financial(c.product.price * c.quantity)}</div>
                             </div>
                         </div>
 
