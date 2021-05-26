@@ -2,6 +2,7 @@
 
 Kodluyoruz Shopping Cart* projesi gerekli gereksinimler yerine getirildi. Gereksinimler dışında projenin büyük kısmında kod iyileştirmesi yaptım, ek olarak dinamik sepet ekledim.
 
+### Demo GIF
 <p align="center">
   <img src="site-demo.gif" alt="Shopping Cart"/>
 </p>
