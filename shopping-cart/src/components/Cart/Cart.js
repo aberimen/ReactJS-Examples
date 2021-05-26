@@ -2,11 +2,14 @@ import React from 'react';
 import { CartIcon } from "../icons";
 import './Cart.css';
 const Cart = ({ cart }) => {
+
+    function financial(x) {
+        return Number.parseFloat(x).toFixed(2);
+    }
+
     return (
 
         <>
-
-
             <div className="dropdown">
 
                 <button className="dropbtn">
@@ -19,11 +22,11 @@ const Cart = ({ cart }) => {
                     {cart.map(c =>
 
                         <div className="cart-item">
-                            <img className="img" src={c.product.image} /> 
+                            <img className="img" src={c.product.image} />
                             <div className="item-body">
                                 <div className="title">{c.product.title.substring(0, 20)}...</div>
                                 <div className="quantity"> Quantity : {c.quantity}</div>
-                                <div className="price">10 TL </div>
+                                <div className="price">{financial(c.product.price * c.quantity)} $ </div>
                             </div>
                         </div>
 
@@ -31,22 +34,7 @@ const Cart = ({ cart }) => {
                 </div>
 
             </div>
-            {/* <Card>
-                <Card.Body>
-                    <Card.Title tag="h4">Cart</Card.Title>
-                    <Card.Text>
-                        {cart.map((cartItem) => (
-                            <Card.Text key={cartItem.product.id}> */}
-            {/* {<Button color="danger" onClick={() => this.props.sepettenSil(cartItem.product)}>x</Button>} */}
-            {/* {cartItem.product.title} - {cartItem.quantity}
-                            </Card.Text>
-                        ))}
-                    </Card.Text>
 
-                    <Button>
-                        Go to Cart</Button>
-                </Card.Body>
-            </Card> */}
         </>
     );
 };

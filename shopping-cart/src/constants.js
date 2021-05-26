@@ -6,7 +6,7 @@ export const products = [
     image: "./assets/vans.png",
     description:
       "The Vans All-Weather MTE Collection features footwear and apparel designed to withstand the elements whilst still looking cool.",
-    price: 65.0,
+    price: 79.90,
   },
   {
     id: 1,
