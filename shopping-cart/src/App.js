@@ -17,7 +17,7 @@ const App = () => {
   const updateCart = (cartItem, newQuantity) => {
     let newCart = [...cart];
 
-    if (newQuantity < 1) { // ürün mıktarı sıfırdan küçükse ürünü sepetten sil
+    if (newQuantity < 1) { // ürün mıktarı birden küçükse ürünü sepetten sil
       newCart = newCart.filter(c => c.product.id !== cartItem.product.id);
 
     } else {
