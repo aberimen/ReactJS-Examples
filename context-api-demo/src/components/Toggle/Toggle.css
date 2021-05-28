@@ -1,0 +1,68 @@
+:root {
+  --black: #1e1e1e;
+}
+
+button {
+  display: block;
+  border: none;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+button:focus,
+button:active {
+  outline: none;
+}
+
+button:active {
+  transform: scale(1);
+}
+
+/* Toggle button styles */
+.toggle {
+  background-color: var(--black);
+  min-width: 80px;
+  min-height: 40px;
+  margin-bottom: 1rem;
+  position: relative;
+  border-radius: 30px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: background-color ease-out 250ms;
+}
+
+.toggle::after {
+  content: "";
+  background-color: #fff;
+  position: absolute;
+  border: 3px solid var(--black);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  border-radius: 50%;
+  transition: transform ease-out 0.25s;
+}
+
+/* Active (dark mode) class for animating transition on toggle button*/
+.toggle.clicked::after {
+  transform: translateX(100%);
+  background-color: var(--black);
+  border-color: #fff;
+}
+
+.toggle.clicked {
+  background-color: #fff;
+  border-color: var(--black);
+}
+/*
+  position: absolute;
+    background-color: red;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 30px;
+    transition: transform ease-out 250ms; */
