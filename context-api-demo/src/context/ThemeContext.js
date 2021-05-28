@@ -1,25 +1,26 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 
 export const ThemeContext = React.createContext();
 
 const ThemeContextProvider = ({ children }) => {
 
-    const [theme, setTheme] = useState({
+    const reducer = (theme, action) => {
+        switch (action.type) {
+            case 'CHANGE_THEME':
+                return { ...theme, isDark: !theme.isDark };
+        }
+    }
+
+    const initialState = {
         isDark: false,
         dark: { bg: "#121212", contentBg: "#1e1e1e", text: "#fff" },
         light: { bg: "#fff", contentBg: "#fff", text: "#000" }
-    });
+    };
 
-    const changeTheme = () => {
-		//setTheme({...theme, isDark : !theme.isDark});
-        const themeCopy = { ...theme };
-        themeCopy.isDark = !themeCopy.isDark;
-        setTheme(themeCopy);
-    }
-
+    const [theme, dispatch] = useReducer(reducer, initialState);
 
     return (
-        <ThemeContext.Provider value={{ ...theme, changeTheme }}>
+        <ThemeContext.Provider value={{ ...theme, dispatch }}>
             {children}
         </ThemeContext.Provider>
     );

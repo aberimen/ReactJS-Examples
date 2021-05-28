@@ -4,10 +4,10 @@ import Toggle from './Toggle/Toggle';
 
 const Header = () => {
 
-    const { changeTheme } = useContext(ThemeContext);
+    const { dispatch } = useContext(ThemeContext);
 
     const handleTheme = () => {
-        changeTheme();
+        dispatch({ type: 'CHANGE_THEME' })
     }
 
     return (
